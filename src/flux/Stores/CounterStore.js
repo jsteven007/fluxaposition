@@ -30,6 +30,6 @@ export default class CounterStore extends Reflux.Store
 		const { messages } =  this.state;
 		let newArray = messages.concat(message);
 		this.setState({ messages: newArray });
-		console.log(messages);
+		
 	}
 }

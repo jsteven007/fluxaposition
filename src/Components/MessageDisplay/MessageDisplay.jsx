@@ -8,16 +8,29 @@ class MessageDisplay extends Component {
   constructor(props){
     super(props)
     this.state = {
+      message:'',
     }
     this.store = CounterStore;
-  }
-  render(){
 
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(val){
+    this.setState({message: val});
+  }
+
+  render(){
+    const { message, messages } = this.state;
+    console.log(messages);
     return (
       <div className="">
-        {this.state.count}
-        <button onClick={ () => Actions.increment()  } >Increase Count</button>
-        <button onClick={ () => Actions.addToMessages("Hello") } > Add To Messages </button>
+        <input value={ message } onChange={ (e) => this.handleChange(e.target.value) }  column="10" rows="1"/>
+        <button onClick={ () => 
+          { Actions.addToMessages(message);
+            this.setState({ message:"" }); } } > Add To Messages </button>
+        { messages.length > 0 && messages.map( (elem, i) => {
+         return <div key={i} >{elem}</div>
+       }  ) }
       </div>
     )
   }
