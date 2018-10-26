@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MessageDisplay from './Components/MessageDisplay/MessageDisplay';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      message:'',
+      messages:[],
+    };
+    this.addToMessages = this.addToMessages.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(val){
+    this.setState({message: val});
+  }
+
+  addToMessages(val){
+    const { messages } = this.state;
+    let newArray= messages.concat(val);
+    this.setState({ messages : newArray } );
+    this.setState({ message:"" });
+  }
+
   render() {
+    console.log("props",this.props, "state", this.state);
+    const { message, messages } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+       <input value={ message } onChange={ (e) => this.handleChange(e.target.value) }  column="10" rows="1"/>
+       <button  onClick={ () => this.addToMessages( message )}> Add Your Message </button>
+       { messages.length > 0 && messages.map( (elem, i) => {
+         return <div key={i} >{elem}</div>
+       }  ) }
+       <MessageDisplay/>
       </div>
     );
   }
