@@ -2,7 +2,8 @@ import React from "react";
 import { Component } from "reflux";
 import CounterStore from "../../flux/Stores/CounterStore";
 import Actions from "../../flux/Actions/actions";
-//import './MessageDisplay.css';
+import Message from '../Message/Message';
+import './MessageDisplay.css';
 
 class MessageDisplay extends Component {
   constructor(props) {
@@ -19,21 +20,12 @@ class MessageDisplay extends Component {
     this.setState({ message: val });
   }
 
-  displayMessages() {
-    const { messages } = this.state;
-    return (
-      messages.length > 0 &&
-      messages.map((elem, i) => {
-        return <div key={i}>{elem}</div>;
-      })
-    );
-  }
-
   render() {
     const { message, messages } = this.state;
     console.log(messages);
     return (
-      <div className="">
+      <div >
+        <div className="message-display">
         <input
           value={message}
           onChange={e => this.handleChange(e.target.value)}
@@ -48,7 +40,11 @@ class MessageDisplay extends Component {
         >
           Add To Messages
         </button>
-        {this.displayMessages()}
+        </div>
+       { messages.length > 0 &&
+      messages.map((elem, i) => {
+        return <Message key={i} text={elem} index={i}/>;
+      }) }
       </div>
     );
   }
