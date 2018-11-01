@@ -8,7 +8,8 @@ const Message = ({ text, index }) => {
     let top =  Math.floor(Math.random()*(document.body.clientHeight - 20));
     let left = Math.floor(Math.random()*(document.body.clientWidth - 20));
     // this is so that the newest message is placed on top.
-    let zeta = index + 100; 
+    let zeta = index + 10; 
+    let size = index + (Math.random() * 100);
   return (
     <div
       className="message"
@@ -17,7 +18,8 @@ const Message = ({ text, index }) => {
         position: "absolute",
         top:  top ,
         left:  left ,
-        zIndex: zeta 
+        zIndex: zeta,
+        fontSize: size
       }}
     >
       {text}
