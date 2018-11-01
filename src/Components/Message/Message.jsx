@@ -1,6 +1,9 @@
 import React from "react";
 import './Message.css';
 
+const fonts = ['Anton','Pacifico','Abril Fatface','Amatic SC','Comfortaa'];
+
+
 const Message = ({ text, index }) => {
     // this generates a random hex code and truncated it to 6 characters.
     let randomColor = '#' + ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
@@ -10,6 +13,7 @@ const Message = ({ text, index }) => {
     // this is so that the newest message is placed on top.
     let zeta = index + 10; 
     let size = index + (Math.random() * 100);
+    let messageFont = fonts[Math.floor(Math.random()*fonts.length)];
   return (
     <div
       className="message"
@@ -19,7 +23,8 @@ const Message = ({ text, index }) => {
         top:  top ,
         left:  left ,
         zIndex: zeta,
-        fontSize: size
+        fontSize: size,
+        fontFamily: messageFont
       }}
     >
       {text}
