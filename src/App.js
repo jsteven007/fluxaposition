@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
-import MessageDisplay from "./Components/MessageDisplay/MessageDisplay";
+import Speech from "./Components/VoiceTest/VoiceTest";
+
+// import MessageDisplay from "./Components/MessageDisplay/MessageDisplay";
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <MessageDisplay />
+        {/* <MessageDisplay /> */}
+        <Speech />
       </div>
     );
   }
