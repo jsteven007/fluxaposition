@@ -1,7 +1,7 @@
 import React from "react";
 import './Message.css';
 
-const fonts = ['Anton','Pacifico','Abril Fatface','Amatic SC','Comfortaa'];
+const fonts = ['Anton','Pacifico','Abril Fatface','Comfortaa','Permanent Marker','Satisfy',];
 
 
 const Message = ({ text, index }) => {
