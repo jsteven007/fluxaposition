@@ -1,3 +1,6 @@
+Hey Josh -- I'm super impressed with your React Native skillset, and would love to chat about an open position at Sutra Fitness. If you're open to chattting, please hit me up at josh@sutra.fit
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
